@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f8c">
+<title>Children's Pavilion Provider Locator</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;transition:background .2s,color .2s}button,input,select{font:inherit}button{cursor:pointer}
+body.theme-light{--bg:#f5fafb;--surface:#fff;--surface2:#eef7f8;--text:#17343b;--muted:#5d7378;--line:#d5e5e8;--brand:#087f8c;--brand2:#f3a712;--hero1:#056a75;--hero2:#19a7a7;--shadow:0 14px 35px rgba(16,74,82,.12);--focus:#ffbf47;background:linear-gradient(180deg,#e9f8fa 0,#f8fbfc 390px,#f5fafb 100%);color:var(--text)}
+body.theme-dark{--bg:#0d1d21;--surface:#132a30;--surface2:#18363d;--text:#eefbfc;--muted:#b1c9cd;--line:#2b5159;--brand:#55d4d3;--brand2:#ffc34b;--hero1:#082e35;--hero2:#075e68;--shadow:0 14px 35px rgba(0,0,0,.3);--focus:#ffc34b;background:linear-gradient(180deg,#0b333a 0,#0d1d21 390px,#0d1d21 100%);color:var(--text)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(125deg,var(--hero1),var(--hero2));padding:28px 20px 76px}.hero:before,.hero:after{content:"";position:absolute;border-radius:55% 45% 60% 40%;border:2px solid rgba(255,255,255,.14);transform:rotate(35deg)}.hero:before{width:290px;height:150px;right:-60px;top:-30px}.hero:after{width:210px;height:110px;right:120px;bottom:-45px}.topbar,.hero-inner,.main{max-width:1220px;margin:auto}.topbar{display:flex;justify-content:flex-end}.theme-toggle{border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:9px 13px;font-weight:700}.brand{display:flex;gap:17px;align-items:center;margin-top:15px}.butterfly{font-size:54px;filter:drop-shadow(0 6px 7px rgba(0,0,0,.18))}.hero h1{margin:0;font-size:clamp(2rem,5vw,3.5rem);line-height:1.04}.hero p{margin:10px 0 0;font-size:1.06rem;max-width:720px;color:#eaffff}.main{padding:0 20px 36px;margin-top:-48px;position:relative}.search-panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow)}.search-row{display:grid;grid-template-columns:1fr 250px auto;gap:12px}.search-wrap{position:relative}.search-wrap span{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:21px}.search-input,.specialty-select{width:100%;border:1px solid var(--line);background:var(--surface2);color:var(--text);border-radius:14px;padding:15px}.search-input{padding-left:49px;font-size:1.05rem}.clear-btn{border:0;background:var(--brand);color:#fff;border-radius:14px;padding:0 19px;font-weight:800}.summary{display:flex;flex-wrap:wrap;gap:10px;margin:14px 2px 0;color:var(--muted);font-weight:700}.pill{background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:6px 11px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:26px 2px 12px}.section-title h2{margin:0;font-size:1.3rem}.section-title p{margin:0;color:var(--muted)}.floor-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}.floor-card{position:relative;text-align:left;border:2px solid transparent;border-radius:18px;padding:15px 12px;background:var(--surface);color:var(--text);box-shadow:var(--shadow);min-height:144px;transition:transform .16s,border-color .16s}.floor-card:hover{transform:translateY(-3px)}.floor-card.active{border-color:var(--floor);box-shadow:0 0 0 3px color-mix(in srgb,var(--floor) 24%,transparent),var(--shadow)}.animal{font-size:31px}.floor-number{font-size:1.05rem;font-weight:900;margin-top:6px;color:var(--floor)}.mascot{font-size:.82rem;color:var(--muted);margin-top:3px;line-height:1.25}.floor-count{position:absolute;right:10px;top:10px;border-radius:999px;background:var(--surface2);padding:4px 8px;font-size:.75rem;font-weight:800}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:27px 2px 13px}.toolbar h2{margin:0;font-size:1.35rem}.result-note{color:var(--muted);font-weight:700}.providers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.provider-card{background:var(--surface);border:1px solid var(--line);border-left:7px solid var(--floor);border-radius:17px;padding:17px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:192px}.provider-name{margin:0;font-size:1.17rem;line-height:1.25}.credentials{color:var(--muted);font-weight:700;font-size:.9rem;margin-top:3px}.specialty{margin:17px 0 14px;font-weight:750;line-height:1.35}.wayfinding{margin-top:auto;display:flex;align-items:center;gap:11px;background:var(--surface2);border-radius:13px;padding:10px}.wayfinding .icon{font-size:27px}.go-floor{font-weight:900;color:var(--floor)}.wayfinding small{display:block;color:var(--muted);margin-top:2px}.empty{grid-column:1/-1;text-align:center;padding:42px;background:var(--surface);border:1px dashed var(--line);border-radius:18px;color:var(--muted)}.footer{text-align:center;color:var(--muted);padding:9px 20px 34px}.footer strong{color:var(--text)}
+@media(max-width:1050px){.floor-grid{grid-template-columns:repeat(3,1fr)}.providers{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.hero{padding-bottom:67px}.brand{align-items:flex-start}.butterfly{font-size:42px}.search-row{grid-template-columns:1fr}.clear-btn{padding:13px}.floor-grid{grid-template-columns:repeat(2,1fr)}.providers{grid-template-columns:1fr}.section-title,.toolbar{align-items:flex-start;flex-direction:column}.floor-card{min-height:132px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body class="theme-light">
+<header class="hero">
+  <div class="topbar"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch color theme">🌙 Dark mode</button></div>
+  <div class="hero-inner brand">
+    <div class="butterfly" aria-hidden="true">🦋</div>
+    <div><h1>Children's Pavilion<br>Provider Locator</h1><p>Find a provider, specialty, floor, or animal landmark in seconds.</p></div>
+  </div>
+</header>
+<main class="main">
+  <section class="search-panel" aria-label="Provider search controls">
+    <div class="search-row">
+      <label class="search-wrap"><span aria-hidden="true">🔎</span><input id="search" class="search-input" type="search" autocomplete="off" placeholder="Search name, specialty, floor, or mascot..." aria-label="Search providers"></label>
+      <select id="specialty" class="specialty-select" aria-label="Filter by specialty"><option value="">All specialties</option></select>
+      <button id="clear" class="clear-btn" type="button">Clear filters</button>
+    </div>
+    <div class="summary" aria-live="polite"><span class="pill" id="providerStat"></span><span class="pill" id="specialtyStat"></span><span class="pill">6 animal-themed floors</span></div>
+  </section>
+
+  <div class="section-title"><div><h2>Choose a floor</h2><p>Select the active floor again to show all floors.</p></div></div>
+  <section id="floorGrid" class="floor-grid" aria-label="Floor filters"></section>
+
+  <div class="toolbar"><h2>Providers</h2><div id="resultNote" class="result-note" aria-live="polite"></div></div>
+  <section id="providers" class="providers" aria-label="Provider results"></section>
+</main>
+<footer class="footer"><strong>Children's Pavilion Provider Locator</strong><br>Created by Luis R. • Verify directory information when giving directions.</footer>
+
+<!-- PROVIDER DATA: Replace only the CSV content inside this block when updating the directory. -->
+<script id="providerCsv" type="text/csv">
+First Name,Middle Name,Last Name,Credentials,Floor,Specialty
+William,T.,Adamson,MD,2,General Surgery
+Ololade,,Akintoye,MD,3,Cardiology
+Mohammed,,Al-Humiari,MD,4,Pulmonology
+Sharef,,Al-Mulabed,MD,2,Gastroenterology
+Farranaz,,Alvarez,MD,3,Hematology/Oncology
+Igor,,Areinamo,MD,3,Cardiology
+Omar,,Ayyash,"MD, MPH",5,Urology
+Kevin,,Beers,MD,3,Cardiology
+Marisa,,Bennardo,APRN,3,Hematology/Oncology
+Sangeeta,,Bhargava,MD,2,Gastroenterology
+Khaled,,Bitar,MD,2,Gastroenterology
+Jeffrey,,Bornstein,MD,2,Gastroenterology
+Janusz,,Burzynski,MD,3,Cardiology
+Patricia,,Butterbaugh,APRN,5,Urology
+Brenda,,Cardenas,APRN,2,Gastroenterology
+Stefano,,Cardin,MD,1,Orthopedics
+Vivian,,Caro,PA-C,1,Orthopedics
+Elizabeth,,Carreno-Rijo,MD,5,Adolescent Medicine
+Gloria,,Chiang,PhD,6,Psychology
+Olivia,,Chiang,PsyD,6,Neurology
+Cynthia,,Cornelius,APRN,4,Pulmonology
+Maricruz,,Crespo,MD,2,Gastroenterology
+Ingrid,,Cristian,MD,5,Genetics
+Justin,,de Boer,MD,2,Gastroenterology
+Susan,,DesJardins,MD,3,Cardiology
+Kia,,Diamond,APRN,3,Hematology/Oncology
+Michelle,,Dominguez,PA-C,2,General Surgery
+Angela,,Donahue,APRN,5,Palliative Care
+Sheryl,,Esmond,PA-C,2,General Surgery
+Bensen,,Fan,MD,1,Orthopedics
+Luis,,Faverio,MD,4,Pulmonology
+Craig,,Fleishman,MD,3,Cardiology
+Monica,,Friedman,MD,2,Rheumatology
+Brenna,,Fullerton,MD,2,General Surgery
+Daniel,,Garcia,MD,4,Pulmonology
+Grace,,George,APRN,3,Cardiology
+Melissa,,Gies,APRN,1,Orthopedics
+Salil,,Ginde,MD,3,ACHD
+Devinn,,Gorey,PA-C,2,General Surgery
+Erin,,Greenup,DO,4,Endocrinology
+Alyssa,,Grundon,APRN,5,Pediatric/Adolescent Gynecology
+Stephanie,,Ha-Chen,MD,5,Palliative Care
+Heidi,,Hanks,PA-C,3,Cardiology
+Jose,,Herrera-Soto,MD,1,Orthopedics
+Christopher,,Herron,MD,3,Cardiology
+Henry,,Hough,PA-C,1,Orthopedics
+Tain-Yen,,Hsia,MD,3,Cardiology
+Charles,,Hughes,MD,4,Otolaryngology
+Karen,,Iacono,APRN,3,Cardiology
+Teri,,Jackson,APRN,2,Gastroenterology
+Ernest,,Jermin,MD,6,Psychiatry
+Jeffery,,Johnson,MD,5,Nephrology
+Jennifer,,Johnson,"AuD, BC-PA",4,Audiology
+Alejandro,,Jordan Villegas,MD,4,Infectious Diseases
+Anam,,Khaja,MD,5,Pediatric/Adolescent Gynecology
+Mahjabeen,,Khan,MD,6,Neurology
+Stephanie,,Klotz,"AuD, CCC-A",4,Audiology
+Kevin,,Kokesh,MD,4,Pulmonology
+Murtuza,,Kothawala,MD,6,Neurology
+Elisabeth,,Krueger,"AuD, CCC-A",4,Audiology
+Federico,,Laham,MD,4,Infectious Diseases
+Marc,,Levy,MD,2,General Surgery
+Dayra,,Licier-Oquendo,MD,6,Neurology
+Taylor,,Livingston,APRN,5,Palliative Care
+Nicole,,Lucchesi,APRN,3,Cardiology
+Christopher,,Mart,MD,3,Cardiology
+Glenda,,Martinez,APRN,5,Nephrology
+Devendra,,Mehta,MD,2,Gastroenterology
+Vijay,,Mehta,DO,2,Gastroenterology
+Edwin,,Mejia-Ortega,APRN,4,Endocrinology
+Raquel,,Melendez Rodriguez,PhD,6,Psychology
+Reesa,,Monir,MD,4,Dermatology
+Zara,,Montufar,APRN,4,Endocrinology
+Anne,,Mortensen,MD,5,Complex Care
+Michelle,,Mundy,APRN,1,Orthopedics
+Laura,,Navia,PhD,6,Psychology
+Rodrigo,,Nehgme,MD,3,Cardiology
+Melissa,,Nicoletti,MD,1,Orthopedics
+Christian,,Nieves-Rivera,MD,3,Hematology/Oncology
+David,,Nykanen,MD,3,Cardiology
+Gina,,O'Connor,APRN,4,Otolaryngology
+Akash,,Pandey,MD,2,Gastroenterology
+Nishant,,Patel,MD,2,Gastroenterology
+Eric,,Payne,MD,6,Neurology
+Marissa,,Perez,"AuD, CCC-A",4,Audiology
+Lorraine,,Perry,APRN,3,Cardiology
+Blaine,,Pitts,MD,5,Palliative Care
+Donald,,Plumley,MD,2,General Surgery
+Vikram,,Prakash,MD,6,Neurology
+Jordan,,Preston,PA-C,1,Orthopedics
+Emma,,Prosser,APRN,5,Complex Care
+Priti,,Purushothaman,MD,6,Psychiatry
+Jennifer,,Quilty,"APRN, DNP",2,General Surgery
+Amina,,Rafique,MD,3,Hematology/Oncology
+Carolina,,Raijer,APRN,2,Gastroenterology
+Jenny,,Raman,MD,5,Palliative Care
+Jorge,,Ramirez,MD,5,Nephrology
+Gabriel,,Ramos,MD,2,General Surgery
+Benjamin,,Rhee,MD,5,Urology
+Elise,,Riddle,MD,3,Cardiology
+Michelle,,Rivera-Vega,MD,4,Endocrinology
+Estefania,,Rodriguez-Ballestas,MD,5,Nephrology
+Malcolm,,Rosario,APRN,6,Neurology
+Carlos,,Sabogal,MD,4,Pulmonology
+Shaista,,Safder,MD,2,Gastroenterology
+Sarah,,Schrager,"AuD, CCC-A",4,Audiology
+Rikin,,Shah,MD,3,Bone Marrow Transplant
+Steven,,Simonte,MD,4,Allergy/Immunology
+Mohamad,,Sinno,MD,3,Hematology/Oncology; Bone Marrow Transplant
+Cortney,,Skepko,APRN,4,Pulmonology
+Yamen,,Smadi,MD,2,Gastroenterology
+Marianne,,Sweeney,APRN,5,Urology
+Shadi,,Tabba,MD,4,Endocrinology
+Naziya,,Tahseen,MD,4,Endocrinology
+Rachael,,Tarasavage,"AuD, CCC-A",4,Audiology
+Lauren,,Thomas,APRN,3,Hematology/Oncology
+Ellen,,Tindal,APRN,2,Gastroenterology
+Elizabeth,,Todd,APRN,2,General Surgery
+James,,Toledano,MD,1,Orthopedics
+Brizel,,Trinidad,PsyD,6,Neuropsychology
+Emily,,Ulloa,PA-C,2,General Surgery
+Gloria,,Valencia,"AuD, CCC-A, CH-TM",4,Audiology
+Gerson,,Valencia Villeda,MD,3,Cardiology
+Antonio,,Vazquez-Diaz,MD,6,Neurology
+Kathleen,,Vazzana,MD,2,Rheumatology
+Cristine,,Velazco,MD,2,General Surgery
+Jennifer,,Villar,MD,4,Endocrinology
+Anita,,Vitale,PhD,6,Psychology
+Gregory,John,Vitale,PsyD,6,Neuropsychology
+Geetha,,Vyas,MD,6,Psychiatry
+Dionne,,Walker,APRN,6,Neurology
+Mark,,Weatherly,MD,4,Pulmonology
+Patricia,,Wheeler,MD,5,Genetics
+Avery,,Wright,MD,3,Hematology/Oncology
+Joshua,,Yang,MD,4,Endocrinology
+</script>
+
+<script>
+const floors={
+  "1":{animal:"Loggerhead Turtle",icon:"🐢",color:"#1677b8"},
+  "2":{animal:"West Indian Manatee",icon:"🦭",color:"#148c82"},
+  "3":{animal:"American Black Bear",icon:"🐻",color:"#d97706"},
+  "4":{animal:"Barking Tree Frog",icon:"🐸",color:"#4a9c38"},
+  "5":{animal:"Eastern Cottontail",icon:"🐇",color:"#c75477"},
+  "6":{animal:"Sandhill Crane",icon:"🐦",color:"#7254a4"}
+};
+function parseCSV(text){
+  const rows=[];let row=[],field="",quoted=false;
+  text=text.replace(/^\uFEFF/,"").trim();
+  for(let i=0;i<text.length;i++){
+    const c=text[i],n=text[i+1];
+    if(c==='"'&&quoted&&n==='"'){field+='"';i++}
+    else if(c==='"'){quoted=!quoted}
+    else if(c===','&&!quoted){row.push(field.trim());field=""}
+    else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(field.trim());if(row.some(Boolean))rows.push(row);row=[];field=""}
+    else field+=c;
+  }
+  row.push(field.trim());if(row.some(Boolean))rows.push(row);
+  const headers=rows.shift();
+  return rows.map(r=>Object.fromEntries(headers.map((h,i)=>[h,r[i]||""])));
+}
+const providers=parseCSV(document.getElementById('providerCsv').textContent).map(p=>({
+  first:p['First Name'],middle:p['Middle Name'],last:p['Last Name'],credentials:p['Credentials'],floor:String(p['Floor']),specialty:p['Specialty']
+})).sort((a,b)=>a.last.localeCompare(b.last)||a.first.localeCompare(b.first));
+const els={search:document.getElementById('search'),specialty:document.getElementById('specialty'),clear:document.getElementById('clear'),grid:document.getElementById('floorGrid'),list:document.getElementById('providers'),note:document.getElementById('resultNote')};
+let activeFloor="";
+const escapeHTML=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const fullName=p=>[p.first,p.middle,p.last].filter(Boolean).join(' ');
+const specialties=[...new Set(providers.flatMap(p=>p.specialty.split(';').map(s=>s.trim())).filter(Boolean))].sort();
+specialties.forEach(s=>els.specialty.add(new Option(s,s)));
+document.getElementById('providerStat').textContent=`${providers.length} providers`;
+document.getElementById('specialtyStat').textContent=`${specialties.length} specialties`;
+function renderFloors(){
+  els.grid.innerHTML=Object.entries(floors).map(([num,f])=>{
+    const count=providers.filter(p=>p.floor===num).length;
+    return `<button type="button" class="floor-card ${activeFloor===num?'active':''}" style="--floor:${f.color}" data-floor="${num}" aria-pressed="${activeFloor===num}"><span class="floor-count">${count}</span><div class="animal" aria-hidden="true">${f.icon}</div><div class="floor-number">Floor ${num}</div><div class="mascot">${f.animal}</div></button>`;
+  }).join('');
+  els.grid.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{activeFloor=activeFloor===b.dataset.floor?'':b.dataset.floor;render();}));
+}
+function matchesSpecialty(p,selected){return !selected||p.specialty.split(';').map(s=>s.trim()).includes(selected)}
+function render(){
+  const q=els.search.value.trim().toLowerCase(),selected=els.specialty.value;
+  const filtered=providers.filter(p=>{
+    const f=floors[p.floor]||{animal:""};
+    const text=[fullName(p),p.credentials,p.specialty,`floor ${p.floor}`,p.floor,f.animal].join(' ').toLowerCase();
+    return (!q||text.includes(q))&&(!activeFloor||p.floor===activeFloor)&&matchesSpecialty(p,selected);
+  });
+  renderFloors();
+  els.note.textContent=`${filtered.length} of ${providers.length} providers`;
+  if(!filtered.length){els.list.innerHTML='<div class="empty"><strong>No providers found.</strong><br>Try another spelling, specialty, floor number, or animal name.</div>';return}
+  els.list.innerHTML=filtered.map(p=>{const f=floors[p.floor]||{animal:'Floor',icon:'📍',color:'#087f8c'};return `<article class="provider-card" style="--floor:${f.color}"><h3 class="provider-name">${escapeHTML(fullName(p))}</h3><div class="credentials">${escapeHTML(p.credentials)}</div><div class="specialty">${escapeHTML(p.specialty)}</div><div class="wayfinding"><span class="icon" aria-hidden="true">${f.icon}</span><div><div class="go-floor">GO TO FLOOR ${escapeHTML(p.floor)}</div><small>${escapeHTML(f.animal)}</small></div></div></article>`}).join('');
+}
+els.search.addEventListener('input',render);els.specialty.addEventListener('change',render);
+els.clear.addEventListener('click',()=>{els.search.value='';els.specialty.value='';activeFloor='';render();els.search.focus()});
+const themeBtn=document.getElementById('themeToggle');
+const savedTheme=localStorage.getItem('cp-theme');if(savedTheme==='dark'){document.body.className='theme-dark';themeBtn.textContent='☀️ Light mode'}
+themeBtn.addEventListener('click',()=>{const dark=document.body.classList.contains('theme-dark');document.body.className=dark?'theme-light':'theme-dark';themeBtn.textContent=dark?'🌙 Dark mode':'☀️ Light mode';localStorage.setItem('cp-theme',dark?'light':'dark')});
+render();
+</script>
+</body>
+</html>
